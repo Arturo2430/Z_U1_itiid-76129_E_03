@@ -1,53 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="16dp"
-    tools:context=".BorrowReturnActivity">
+    android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/spBooks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textViewBookTitleDetail"
+        android:id="@+id/tvCurrentStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:text="Título del Libro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Estado actual: -"
+        android:layout_marginTop="12dp"/>
 
-    <TextView
-        android:id="@+id/textViewCurrentStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        tools:text="Estado actual: Disponible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBookTitleDetail" />
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginTop="16dp">
 
-    <Button
-        android:id="@+id/buttonBorrow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Marcar como Prestado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentStatus" />
+        <Button
+            android:id="@+id/btnBorrow"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="prestar"/>
 
-    <Button
-        android:id="@+id/buttonReturn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Marcar como Devuelto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBorrow" />
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:text="devolver"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

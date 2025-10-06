@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".LoginActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="24dp"
+    android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="0dp"
+        android:id="@+id/etUser"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:hint="Nombre de usuario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:hint="usuario" />
 
     <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="0dp"
+        android:id="@+id/etPass"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Contraseña"
+        android:hint="contraseña"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+        android:layout_marginTop="12dp"/>
 
     <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="0dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Iniciar Sesión"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="entrar"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

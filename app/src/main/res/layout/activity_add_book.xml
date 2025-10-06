@@ -8,7 +8,7 @@
     tools:context=".AddBookActivity">
 
     <EditText
-        android:id="@+id/editTextBookTitle"
+        android:id="@+id/etTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -18,44 +18,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextBookAuthor"
+        android:id="@+id/etAuthor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Autor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBookTitle" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <EditText
-        android:id="@+id/editTextBookGenre"
+        android:id="@+id/etGenre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Género"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBookAuthor" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Para el estado, podrías usar un Spinner o RadioButtons más adelante -->
-    <EditText
-        android:id="@+id/editTextBookStatus"
+    <Spinner
+        android:id="@+id/spStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Estado (Ej: Disponible, Prestado)"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBookGenre" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonSaveBook"
+        android:id="@+id/btnSave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Guardar Libro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBookStatus" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
