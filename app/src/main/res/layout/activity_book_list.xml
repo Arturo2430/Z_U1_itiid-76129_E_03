@@ -6,11 +6,29 @@
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:padding="8dp" android:gravity="center" android:weightSum="5">
 
-        <Button android:id="@+id/btnAdd" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="agregar"/>
-        <Button android:id="@+id/btnBorrowReturn" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="prestar/devolver" android:layout_marginStart="6dp"/>
-        <Button android:id="@+id/btnStats" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="estadísticas" android:layout_marginStart="6dp"/>
-        <Button android:id="@+id/btnExport" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="exportar" android:layout_marginStart="6dp"/>
-        <Button android:id="@+id/btnImport" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="importar" android:layout_marginStart="6dp"/>
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="agregar"/>
+
+        <Button
+            android:id="@+id/btnBorrowReturn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="prestar/devolver"
+            android:layout_marginStart="6dp"/>
+
+        <Button
+            android:id="@+id/btnStats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="estadísticas"
+            android:layout_marginStart="6dp"/>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

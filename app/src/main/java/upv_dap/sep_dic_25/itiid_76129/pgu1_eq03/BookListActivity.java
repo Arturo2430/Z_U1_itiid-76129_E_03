@@ -44,14 +44,14 @@ public class BookListActivity extends AppCompatActivity {
         Button btnAdd = findViewById(R.id.btnAdd);
         Button btnBorrow = findViewById(R.id.btnBorrowReturn);
         Button btnStats = findViewById(R.id.btnStats);
-        Button btnExport = findViewById(R.id.btnExport);
-        Button btnImport = findViewById(R.id.btnImport);
+//        Button btnExport = findViewById(R.id.btnExport);
+//        Button btnImport = findViewById(R.id.btnImport);
 
         btnAdd.setOnClickListener(v -> startActivity(new Intent(this, AddBookActivity.class)));
         btnBorrow.setOnClickListener(v -> startActivity(new Intent(this, BorrowReturnActivity.class)));
-        btnStats.setOnClickListener(v -> startActivity(new Intent(this, StatisticsActivity.class)));
-        btnExport.setOnClickListener(v -> exportCsv());
-        btnImport.setOnClickListener(v -> openCsv.launch("text/*"));
+        btnStats.setOnClickListener(v -> startActivity(new Intent(this, StaticsActivity.class)));
+//        btnExport.setOnClickListener(v -> exportCsv());
+//        btnImport.setOnClickListener(v -> openCsv.launch("text/*"));
     }
 
     @Override
