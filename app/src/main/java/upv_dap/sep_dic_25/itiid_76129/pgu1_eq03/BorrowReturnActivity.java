@@ -5,11 +5,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
-public class BorrowReturnActivity extends AppCompatActivity {
+public class BorrowReturnActivity extends BaseActivity {
 
     DBHelper db;
     Spinner spBooks;
@@ -21,6 +20,7 @@ public class BorrowReturnActivity extends AppCompatActivity {
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_borrow_return);
+        setupBottomNav(R.id.menu_borrow_return);
 
         db = new DBHelper(this);
         spBooks = findViewById(R.id.spBooks);
@@ -33,7 +33,7 @@ public class BorrowReturnActivity extends AppCompatActivity {
         spBooks.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
                 Book b1 = allBooks.get(position);
-                tvStatus.setText("Estado actual: " + (DBHelper.STATUS_AVAILABLE.equals(b1.status) ? "Disponible" : "Prestado"));
+                tvStatus.setText("Actual State: " + (DBHelper.STATUS_AVAILABLE.equals(b1.getStatus()) ? "Available" : "Borrow"));
             }
             @Override public void onNothingSelected(android.widget.AdapterView<?> parent) {}
         });
@@ -45,17 +45,17 @@ public class BorrowReturnActivity extends AppCompatActivity {
     private void refreshBooks() {
         allBooks = db.getAllBooks();
         String[] titles = new String[allBooks.size()];
-        for (int i=0;i<allBooks.size();i++) titles[i]=allBooks.get(i).title;
+        for (int i=0;i<allBooks.size();i++) titles[i]=allBooks.get(i).getTitle();
         spBooks.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, titles));
         if (!allBooks.isEmpty())
-            tvStatus.setText("Estado actual: " + (DBHelper.STATUS_AVAILABLE.equals(allBooks.get(0).status) ? "Disponible" : "Prestado"));
+            tvStatus.setText("Actual State: " + (DBHelper.STATUS_AVAILABLE.equals(allBooks.get(0).getStatus()) ? "Available" : "Borrow"));
     }
 
     private void changeStatus(String newStatus) {
         if (allBooks.isEmpty()) return;
         int idx = spBooks.getSelectedItemPosition();
         Book b1 = allBooks.get(idx);
-        db.updateStatus(b1.id, newStatus);
+        db.updateStatus(b1.getId(), newStatus);
         refreshBooks();
     }
 }

@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-
     DBHelper db;
 
     @Override
@@ -30,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(this, BookListActivity.class));
                 finish();
             } else {
-                Toast.makeText(this, "Usuario/contraseña inválidos (admin/admin)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Invalid username/password", Toast.LENGTH_SHORT).show();
             }
         });
     }

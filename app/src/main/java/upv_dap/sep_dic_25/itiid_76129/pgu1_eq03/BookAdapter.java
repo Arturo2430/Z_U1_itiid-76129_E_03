@@ -32,8 +32,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.VH> {
     @Override
     public void onBindViewHolder(@NonNull VH h, int pos) {
         Book b = data.get(pos);
-        h.title.setText(b.title);
-        h.subtitle.setText(b.author + " • " + b.genre + " • " + (DBHelper.STATUS_AVAILABLE.equals(b.status) ? "Disponible" : "Prestado"));
+        h.title.setText(b.getTitle());
+        h.subtitle.setText(b.getAuthor() + " • " + b.getGenre() + " • " + (DBHelper.STATUS_AVAILABLE.equals(b.getStatus()) ? "Disponible" : "Prestado"));
     }
 
     @Override

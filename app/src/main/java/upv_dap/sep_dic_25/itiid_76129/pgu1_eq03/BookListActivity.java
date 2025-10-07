@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class BookListActivity extends AppCompatActivity {
+public class BookListActivity extends BaseActivity {
 
     DBHelper db;
     BookAdapter adapter;
@@ -17,6 +17,7 @@ public class BookListActivity extends AppCompatActivity {
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_book_list);
+        setupBottomNav(R.id.menu_books);
 
         db = new DBHelper(this);
 
@@ -24,14 +25,6 @@ public class BookListActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new BookAdapter(db.getAllBooks());
         rv.setAdapter(adapter);
-
-        Button btnAdd = findViewById(R.id.btnAdd);
-        Button btnBorrow = findViewById(R.id.btnBorrowReturn);
-        Button btnStats = findViewById(R.id.btnStats);
-
-        btnAdd.setOnClickListener(v -> startActivity(new Intent(this, AddBookActivity.class)));
-        btnBorrow.setOnClickListener(v -> startActivity(new Intent(this, BorrowReturnActivity.class)));
-        btnStats.setOnClickListener(v -> startActivity(new Intent(this, StaticsActivity.class)));
     }
 
     @Override

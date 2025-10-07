@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_books"
+        android:title="Books"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_add"
+        android:title="Add"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_borrow_return"
+        android:title="Borrow/Return"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_stats"
+        android:title="Stats"
+        app:showAsAction="never" />
+</menu>

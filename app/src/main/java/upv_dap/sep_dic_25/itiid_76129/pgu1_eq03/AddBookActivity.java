@@ -7,24 +7,22 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class AddBookActivity extends AppCompatActivity {
-
+public class AddBookActivity extends BaseActivity {
     DBHelper db;
 
     @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_add_book);
+        setupBottomNav(R.id.menu_add);
 
         db = new DBHelper(this);
 
         EditText etTitle = findViewById(R.id.etTitle);
         EditText etAuthor = findViewById(R.id.etAuthor);
-        EditText etGenre  = findViewById(R.id.etGenre);
-        Spinner spStatus  = findViewById(R.id.spStatus);
-        Button btnSave    = findViewById(R.id.btnSave);
+        EditText etGenre = findViewById(R.id.etGenre);
+        Spinner spStatus = findViewById(R.id.spStatus);
+        Button btnSave = findViewById(R.id.btnSave);
 
         spStatus.setAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item,
@@ -38,8 +36,10 @@ public class AddBookActivity extends AppCompatActivity {
                     etGenre.getText().toString().trim(),
                     spStatus.getSelectedItem().toString());
             db.insertBook(b1);
-            Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show();
-            finish();
+            etTitle.setText("");
+            etAuthor.setText("");
+            etGenre.setText("");
+            Toast.makeText(this, "Book " + t + " was saving", Toast.LENGTH_SHORT).show();
         });
     }
 }

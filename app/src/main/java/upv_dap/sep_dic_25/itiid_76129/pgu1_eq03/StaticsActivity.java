@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class StaticsActivity extends AppCompatActivity {
+public class StaticsActivity extends BaseActivity {
 
     DBHelper db;
 
@@ -13,6 +13,7 @@ public class StaticsActivity extends AppCompatActivity {
     protected void onCreate(Bundle b) {
         super.onCreate(b);
         setContentView(R.layout.activity_statics);
+        setupBottomNav(R.id.menu_stats);
 
         db = new DBHelper(this);
 

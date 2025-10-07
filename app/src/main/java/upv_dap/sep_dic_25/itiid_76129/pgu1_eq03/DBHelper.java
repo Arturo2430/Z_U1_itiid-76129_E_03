@@ -69,10 +69,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public long insertBook(Book b) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues v = new ContentValues();
-        v.put("title", b.title);
-        v.put("author", b.author);
-        v.put("genre", b.genre);
-        v.put("status", b.status == null ? STATUS_AVAILABLE : b.status);
+        v.put("title", b.getTitle());
+        v.put("author", b.getAuthor());
+        v.put("genre", b.getGenre());
+        v.put("status", b.getStatus() == null ? STATUS_AVAILABLE : b.getStatus());
         return db.insert(T_BOOKS, null, v);
     }
 
