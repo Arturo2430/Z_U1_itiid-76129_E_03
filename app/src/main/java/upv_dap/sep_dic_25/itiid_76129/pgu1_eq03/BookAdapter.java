@@ -33,7 +33,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.VH> {
     public void onBindViewHolder(@NonNull VH h, int pos) {
         Book b = data.get(pos);
         h.title.setText(b.getTitle());
-        h.subtitle.setText(b.getAuthor() + " • " + b.getGenre() + " • " + (DBHelper.STATUS_AVAILABLE.equals(b.getStatus()) ? "Disponible" : "Prestado"));
+        h.subtitle.setText(b.getAuthor() + " • " + b.getGenre() + " • " + (DBHelper.STATUS_AVAILABLE.equals(b.getStatus()) ? "Available" : "Borrow"));
     }
 
     @Override
@@ -41,6 +41,10 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.VH> {
 
     static class VH extends RecyclerView.ViewHolder {
         TextView title, subtitle;
-        VH(View v) { super(v); title = v.findViewById(R.id.tvTitle); subtitle = v.findViewById(R.id.tvSubtitle); }
+        VH (View v) {
+            super(v);
+            title = v.findViewById(R.id.tvTitle);
+            subtitle = v.findViewById(R.id.tvSubtitle);
+        }
     }
 }
