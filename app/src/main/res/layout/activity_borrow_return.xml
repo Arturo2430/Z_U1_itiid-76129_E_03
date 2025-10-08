@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="?attr/colorSurface">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                     android:text="Borrow / Return"
                     android:textStyle="bold"
                     android:textSize="26sp"
-                    android:textColor="#6A1B9A"
+                    android:textColor="?attr/colorPrimary"
                     android:layout_marginBottom="24dp"  />
 
                 <Spinner
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="Current status: -"
                     android:textSize="16sp"
-                    android:textColor="#333333"
+                    android:textColor="?attr/colorOnSurface"
                     android:layout_marginTop="20dp" />
             </LinearLayout>
 
@@ -68,8 +68,8 @@
                     android:layout_weight="1"
                     android:text="Borrow"
                     android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:backgroundTint="#7B1FA2" />
+                    android:textColor="?attr/colorOnPrimary"
+                    android:backgroundTint="?attr/colorPrimary" />
 
                 <Space
                     android:layout_width="12dp"
@@ -82,8 +82,8 @@
                     android:layout_weight="1"
                     android:text="Return"
                     android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:backgroundTint="#9C27B0" />
+                    android:textColor="?attr/colorOnPrimary"
+                    android:backgroundTint="?attr/colorPrimary" />
             </LinearLayout>
 
         </LinearLayout>
@@ -94,5 +94,5 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav" />
+        app:menu="@menu/bottom_nav"  android:background="?attr/colorSurface"/>
 </LinearLayout>

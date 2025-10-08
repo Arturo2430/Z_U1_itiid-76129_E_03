@@ -18,11 +18,11 @@ public final class FileHelper {
     private static final Charset UTF8 = StandardCharsets.UTF_8;
 
     /**
-     *
-     * @param os
-     * @param books
-     * @param includeHeader
-     * @throws IOException
+     * Writes a list of books to an OutputStream in CSV format
+     * @param os The OutputStream to write to
+     * @param books The list of books to write
+     * @param includeHeader Whether to include a header row in the CSV
+     * @throws IOException If an I/O error occurs
      */
     public static void writeCsv(OutputStream os, List<Book> books, boolean includeHeader) throws IOException {
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, UTF8))) {
@@ -41,6 +41,12 @@ public final class FileHelper {
         }
     }
 
+    /**
+     * Reads a CSV from an InputStream and returns a list of books
+     * @param is The InputStream to read from
+     * @return A list of books
+     * @throws IOException If an I/O error occurs
+     */
     public static List<Book> readCsv(InputStream is) throws IOException {
         List<Book> list = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(is, UTF8))) {
@@ -61,9 +67,9 @@ public final class FileHelper {
     }
 
     /**
-     *
-     * @param list
-     * @param line
+     * Parses a line from a CSV file and adds it as a book to the list
+     * @param list The list of books to add to
+     * @param line The line to parse
      */
     private static void addBookFromLine(List<Book> list, String line) {
         if (line == null) return;
@@ -102,6 +108,7 @@ public final class FileHelper {
         list.add(b);
     }
 
+    // Checks if a line is a header by looking for common column names
     private static boolean isHeader(String line) {
         ArrayList<String> cols = splitCsvLine(line);
         if (cols.isEmpty()) return false;
@@ -114,6 +121,7 @@ public final class FileHelper {
         return false;
     }
 
+    // Normalizes different status strings to a standard format
     private static String normalizeStatus(String s) {
         if (s == null) return DBHelper.STATUS_AVAILABLE;
         String x = s.trim().toUpperCase();
@@ -124,6 +132,7 @@ public final class FileHelper {
         return DBHelper.STATUS_AVAILABLE;
     }
 
+    // Escapes a string for use in a CSV file
     private static String escapeCsv(String in) {
         if (in == null) return "";
         boolean mustQuote = in.contains(",") || in.contains("\"") || in.contains("\n") || in.contains("\r");
@@ -131,6 +140,7 @@ public final class FileHelper {
         return mustQuote ? ("\"" + out + "\"") : out;
     }
 
+    // Splits a line from a CSV file into columns
     private static ArrayList<String> splitCsvLine(String line) {
         ArrayList<String> out = new ArrayList<>();
         StringBuilder cur = new StringBuilder();
@@ -164,9 +174,16 @@ public final class FileHelper {
         return out;
     }
 
+    // Returns an empty string if the input is null
     private static String nullToEmpty(String s) { return s == null ? "" : s; }
+
+    // Checks if a string is null or empty
     private static boolean isEmpty(String s) { return s == null || s.trim().isEmpty(); }
+
+    // Gets an element from a list or returns an empty string if the index is out of bounds
     private static String getOrEmpty(List<String> l, int idx) { return idx < l.size() ? l.get(idx) : ""; }
+
+    // Safely parses a string to a long, returning 0 on failure
     private static long parseLongSafe(String v) {
         try { return Long.parseLong(v.trim()); } catch (Exception e) { return 0; }
     }

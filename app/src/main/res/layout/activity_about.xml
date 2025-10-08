@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="?attr/colorSurface">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="Miembros del equipo"
                 android:textSize="24sp"
-                android:textColor="#6A1B9A"
+                android:textColor="?attr/colorPrimary"
                 android:textStyle="bold"
                 android:layout_marginBottom="24dp"/>
 
@@ -33,28 +33,28 @@
                 android:layout_height="wrap_content"
                 android:text="Ana Sofia Cano Sandoval - 2430300"
                 android:textSize="18sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" android:textColor="?attr/colorPrimary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jose Emliano Puga Saucedo - 2430284"
                 android:textSize="18sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" android:textColor="?attr/colorPrimary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Melissa Jazmin Torres Matrinez - 2430017"
                 android:textSize="18sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" android:textColor="?attr/colorPrimary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Junior Arturo Vazquez Leonel - 2430319"
                 android:textSize="18sp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp" android:textColor="?attr/colorPrimary"/>
 
         </LinearLayout>
 
@@ -65,5 +65,5 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav" />
+        app:menu="@menu/bottom_nav"  android:background="?attr/colorSurface"/>
 </LinearLayout>

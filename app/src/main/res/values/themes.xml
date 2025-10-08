@@ -1,9 +1,67 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Z_U1_itiid76129_E_03" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Tema base: un solo tema que soporta claro/oscuro -->
+    <style name="Theme.MyLibrary" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+        <item name="colorOnTertiary">@color/colorOnTertiary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorOutline">@color/colorOutline</item>
+
+        <item name="android:windowBackground">?attr/colorSurface</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+
+        <item name="materialCardViewStyle">@style/App.Card</item>
+        <item name="buttonStyle">@style/App.Button</item>
+        <item name="chipStyle">@style/App.Chip</item>
+        <item name="textInputStyle">@style/App.TextInput</item>
+        <item name="bottomNavigationStyle">@style/App.BottomNav</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/Shape.Rounded.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.Rounded.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/Shape.Rounded.Large</item>
     </style>
 
-    <style name="Theme.Z_U1_itiid76129_E_03" parent="Base.Theme.Z_U1_itiid76129_E_03" />
+    <!-- Widgets -->
+    <style name="App.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">14dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?attr/colorOutline</item>
+    </style>
+
+    <style name="App.Button" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="App.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipMinHeight">28dp</item>
+    </style>
+
+    <style name="App.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="App.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">?attr/colorSurface</item>
+    </style>
+
+    <style name="Shape.Rounded.Small" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+    <style name="Shape.Rounded.Medium" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="Shape.Rounded.Large" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">22dp</item>
+    </style>
+
 </resources>

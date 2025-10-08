@@ -5,14 +5,14 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="32dp"
-    android:background="#FFFFFF"
+    android:background="?attr/colorSurface"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
     <TextView
         android:text="My Library"
-        android:textColor="#6A1B9A"
+        android:textColor="?attr/colorPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
-        app:boxStrokeColor="#6A1B9A">
+        app:boxStrokeColor="?attr/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etUser"
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        app:boxStrokeColor="#6A1B9A">
+        app:boxStrokeColor="?attr/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPass"
@@ -52,8 +52,8 @@
         android:text="Login"
         android:textAllCaps="false"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#6A1B9A"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
