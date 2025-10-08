@@ -4,15 +4,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="8dp">
 
+    <!-- Sección de filtros y acciones -->
     <LinearLayout
         android:id="@+id/header_filters_actions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/tv_filter_label"
@@ -20,80 +25,88 @@
             android:layout_height="wrap_content"
             android:text="Filter"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="20sp"
+            android:textColor="#6A1B9A"
+            android:layout_marginBottom="12dp" />
 
         <RadioGroup
             android:id="@+id/rg_filter"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="start">
+            android:gravity="center">
 
             <RadioButton
                 android:id="@+id/radio_available"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available" />
+                android:text="Available"
+                android:textColor="#6A1B9A" />
 
             <RadioButton
                 android:id="@+id/radio_borrowed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="Borrowed" />
+                android:text="Borrowed"
+                android:textColor="#6A1B9A" />
 
             <RadioButton
                 android:id="@+id/radio_all"
-                android:layout_width="106dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:checked="true"
-                android:text="Show All" />
+                android:text="Show All"
+                android:textColor="#6A1B9A" />
         </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="12dp">
+            android:gravity="center"
+            android:layout_marginTop="20dp">
 
             <Button
                 android:id="@+id/btn_export"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Export" />
-
-            <Space
-                android:layout_width="12dp"
-                android:layout_height="wrap_content" />
+                android:text="Export"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#9C27B0"
+                android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btn_import"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Import" />
+                android:text="Import"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#6A1B9A"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
     </LinearLayout>
 
-
-    <!-- Book list -->
+    <!-- Lista de libros -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="334dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
         android:paddingTop="8dp"
         android:paddingBottom="8dp" />
 
-    <!-- Bottom bar -->
+    <!-- bottom bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav" />
 </LinearLayout>
+
