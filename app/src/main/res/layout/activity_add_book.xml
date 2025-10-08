@@ -15,7 +15,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
             <TextView
                 android:text="➕ Add New Book"
@@ -67,9 +68,9 @@
 
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="16dp"
                 android:text="Save Book"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
