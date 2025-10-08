@@ -44,6 +44,13 @@ public abstract class BaseActivity extends AppCompatActivity {
                 }
                 return true;
             }
+            if (id == R.id.menu_about) {
+                if (!(BaseActivity.this instanceof AboutActivity)) {
+                    startActivity(new Intent(BaseActivity.this, AboutActivity.class));
+                    finish();
+                }
+                return true;
+            }
             return false;
         });
     }

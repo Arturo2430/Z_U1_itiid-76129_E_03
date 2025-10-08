@@ -5,17 +5,26 @@
     <item
         android:id="@+id/menu_books"
         android:title="Books"
-        app:showAsAction="never" />
+        android:icon="@android:drawable/ic_menu_agenda"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_add"
         android:title="Add"
-        app:showAsAction="never" />
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_borrow_return"
         android:title="Borrow/Return"
-        app:showAsAction="never" />
+        android:icon="@android:drawable/ic_menu_today"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_stats"
         android:title="Stats"
-        app:showAsAction="never" />
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_about"
+        android:title="About"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="ifRoom" />
 </menu>

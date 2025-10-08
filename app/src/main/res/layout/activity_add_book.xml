@@ -4,10 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:paddingHorizontal="24dp"
-    android:paddingTop="40dp"
-    android:paddingBottom="8dp">
+    android:background="#FFFFFF">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,17 +15,14 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_gravity="center_vertical"
-            android:paddingVertical="40dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:text="➕ Add New Book"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="#6A1B9A"
-                android:layout_marginBottom="28dp"
+                android:layout_marginBottom="24dp"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -38,7 +32,7 @@
                 android:hint="Book Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp" />
+                android:padding="12dp"/>
 
             <EditText
                 android:id="@+id/etAuthor"
@@ -46,7 +40,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp" />
+
+                android:padding="12dp"/>
 
             <EditText
                 android:id="@+id/etGenre"
@@ -54,15 +49,14 @@
                 android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp" />
+                android:padding="12dp"/>
 
             <TextView
                 android:text="Status"
                 android:textColor="#6A1B9A"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="4dp"
                 android:textStyle="bold"
-                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -73,9 +67,9 @@
 
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_weight="1"
                 android:text="Save Book"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"

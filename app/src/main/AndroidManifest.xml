@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Z_U1_itiid76129_E_03">
         <activity android:name=".StaticsActivity"/>
+        <activity android:name=".AboutActivity" />
         <activity android:name=".BorrowReturnActivity"/>
         <activity android:name=".AddBookActivity"/>
         <activity android:name=".BookListActivity"/>
