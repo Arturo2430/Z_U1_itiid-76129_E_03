@@ -18,6 +18,16 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
+            <TextView
+                android:text="Stats"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#6A1B9A"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,7 +38,7 @@
 
                 <TextView
                     android:id="@+id/tvAvail"
-                    android:text="Available: 0"
+                    android:text="Available Books: 0"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
@@ -48,10 +58,9 @@
 
                 <TextView
                     android:id="@+id/tvBorrowed"
-                    android:text="Borrowed: 0"
+                    android:text="Borrowed Books: 0"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
-                    android:layout_marginTop="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

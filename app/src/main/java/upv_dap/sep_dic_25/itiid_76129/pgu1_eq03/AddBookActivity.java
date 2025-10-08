@@ -43,7 +43,7 @@ public class AddBookActivity extends BaseActivity {
             etTitle.setText("");
             etAuthor.setText("");
             etGenre.setText("");
-            Toast.makeText(this, "Book " + strTitle + " was saving", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Book " + strGenre + " was saving", Toast.LENGTH_SHORT).show();
         });
     }
 }

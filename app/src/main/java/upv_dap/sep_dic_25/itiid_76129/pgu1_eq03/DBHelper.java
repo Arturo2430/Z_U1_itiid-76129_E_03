@@ -80,14 +80,14 @@ public class DBHelper extends SQLiteOpenHelper {
     public List<Book> getAllBooks() {
         ArrayList<Book> list = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT id,title,author,status FROM " + T_BOOKS + " ORDER BY title", null);
+        Cursor c = db.rawQuery("SELECT id,title,author,genre,status FROM " + T_BOOKS + " ORDER BY title", null);
         while (c.moveToNext()) {
             Book b = new Book(
                     c.getLong(0),    // id
                     c.getString(1),  // title
                     c.getString(2),  // author
                     c.getString(3), // genre
-                    c.getString(3)   // status
+                    c.getString(4)   // status
             );
             list.add(b);
         }
@@ -166,4 +166,10 @@ public class DBHelper extends SQLiteOpenHelper {
         c.close();
         return n;
     }
+
+    public int deleteAllBooks() {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(T_BOOKS, null, null);
+    }
+
 }
