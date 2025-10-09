@@ -28,43 +28,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/etTitle"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="Book Title"
+                app:boxStrokeColor="?attr/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTitle"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp"/>
-
-            <EditText
-                android:id="@+id/etAuthor"
                 android:hint="Author"
-                android:layout_marginTop="16dp"
+                app:boxStrokeColor="?attr/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAuthor"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:padding="12dp"/>
-
-            <EditText
-                android:id="@+id/etGenre"
                 android:hint="Genre"
-                android:layout_marginTop="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="12dp"/>
+                app:boxStrokeColor="?attr/colorPrimary">
 
-            <TextView
-                android:text="Status"
-                android:textColor="?attr/colorPrimary"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="4dp"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Spinner
-                android:id="@+id/spStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGenre"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnSave"

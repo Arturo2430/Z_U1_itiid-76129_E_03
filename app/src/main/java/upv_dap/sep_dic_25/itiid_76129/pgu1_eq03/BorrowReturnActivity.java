@@ -1,20 +1,27 @@
 package upv_dap.sep_dic_25.itiid_76129.pgu1_eq03;
 
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.chip.Chip;
+import com.google.android.material.color.MaterialColors;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
 import java.util.List;
 
 public class BorrowReturnActivity extends BaseActivity {
 
     DBHelper db;
-    Spinner spBooks;
-    TextView tvStatus;
+    MaterialAutoCompleteTextView spBooks;
+    Chip tvStatus;
 
     List<Book> allBooks;
+    int selectedIndex = -1;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -30,12 +37,10 @@ public class BorrowReturnActivity extends BaseActivity {
 
         refreshBooks();
 
-        spBooks.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
-            @Override public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
-                Book b1 = allBooks.get(position);
-                tvStatus.setText("Actual State: " + (DBHelper.STATUS_AVAILABLE.equals(b1.getStatus()) ? "Available" : "Borrow"));
-            }
-            @Override public void onNothingSelected(android.widget.AdapterView<?> parent) {}
+        spBooks.setOnItemClickListener((parent, view, position, id) -> {
+            selectedIndex = position;
+            Book b1 = allBooks.get(position);
+            applyStatus(b1.getStatus());
         });
 
         btnBorrow.setOnClickListener(v -> changeStatus(DBHelper.STATUS_BORROWED));
@@ -44,18 +49,49 @@ public class BorrowReturnActivity extends BaseActivity {
 
     private void refreshBooks() {
         allBooks = db.getAllBooks();
+
         String[] titles = new String[allBooks.size()];
-        for (int i=0;i<allBooks.size();i++) titles[i]=allBooks.get(i).getTitle();
-        spBooks.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, titles));
-        if (!allBooks.isEmpty())
-            tvStatus.setText("Actual State: " + (DBHelper.STATUS_AVAILABLE.equals(allBooks.get(0).getStatus()) ? "Available" : "Borrow"));
+        for (int i = 0; i < allBooks.size(); i++) titles[i] = allBooks.get(i).getTitle();
+
+        // Layout recomendado para MaterialAutoCompleteTextView
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                com.google.android.material.R.layout.mtrl_auto_complete_simple_item,
+                titles
+        );
+        spBooks.setAdapter(adapter);
+
+        if (!allBooks.isEmpty()) {
+            if (selectedIndex < 0 || selectedIndex >= allBooks.size()) selectedIndex = 0;
+            spBooks.setText(titles[selectedIndex], false);
+            applyStatus(allBooks.get(selectedIndex).getStatus());
+        } else {
+            selectedIndex = -1;
+            tvStatus.setText("Current status: -");
+            tvStatus.setChipBackgroundColor(ColorStateList.valueOf(
+                    MaterialColors.getColor(tvStatus, com.google.android.material.R.attr.colorSurfaceVariant)
+            ));
+            tvStatus.setTextColor(MaterialColors.getColor(tvStatus, com.google.android.material.R.attr.colorOnSurface));
+        }
     }
 
     private void changeStatus(String newStatus) {
-        if (allBooks.isEmpty()) return;
-        int idx = spBooks.getSelectedItemPosition();
+        if (allBooks == null || allBooks.isEmpty()) return;
+
+        int idx = (selectedIndex >= 0 && selectedIndex < allBooks.size()) ? selectedIndex : 0;
         Book b1 = allBooks.get(idx);
+
         db.updateStatus(b1.getId(), newStatus);
+
+        // refrescamos y mantenemos la selección
         refreshBooks();
+    }
+
+    private void applyStatus(String status) {
+        boolean isAvailable = DBHelper.STATUS_AVAILABLE.equals(status);
+
+        int bg = ContextCompat.getColor(this, isAvailable ? R.color.status_available : R.color.status_borrowed);
+        tvStatus.setText(isAvailable ? "Available" : "Borrowed");
+        tvStatus.setChipBackgroundColor(ColorStateList.valueOf(bg));
     }
 }

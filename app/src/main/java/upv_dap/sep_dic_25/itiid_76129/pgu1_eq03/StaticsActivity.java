@@ -23,7 +23,7 @@ public class StaticsActivity extends BaseActivity {
         int a = db.countByStatus(DBHelper.STATUS_AVAILABLE);
         int br = db.countByStatus(DBHelper.STATUS_BORROWED);
 
-        tvAvail.setText("Available: " + a);
-        tvBorrowed.setText("Borrowed: " + br);
+        tvAvail.setText("Available Books: " + a);
+        tvBorrowed.setText("Borrowed Books: " + br);
     }
 }
