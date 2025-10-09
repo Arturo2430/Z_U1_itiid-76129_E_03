@@ -187,4 +187,26 @@ public final class FileHelper {
     private static long parseLongSafe(String v) {
         try { return Long.parseLong(v.trim()); } catch (Exception e) { return 0; }
     }
+
+    /**
+     * Writes a list of books to an OutputStream in plain text format (same format as CSV)
+     * @param os The OutputStream to write to
+     * @param books The list of books to write
+     * @throws IOException If an I/O error occurs
+     */
+    public static void writeTxt(OutputStream os, List<Book> books) throws IOException {
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, UTF8))) {
+            bw.write("title,author,genre,status");
+            bw.newLine();
+            for (Book b : books) {
+                bw.write(escapeCsv(b.getTitle())); bw.write(',');
+                bw.write(escapeCsv(nullToEmpty(b.getAuthor()))); bw.write(',');
+                bw.write(escapeCsv(nullToEmpty(b.getGenre()))); bw.write(',');
+                bw.write(escapeCsv(normalizeStatus(b.getStatus())));
+                bw.newLine();
+            }
+            bw.flush();
+        }
+    }
+
 }

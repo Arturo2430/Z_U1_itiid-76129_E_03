@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(this, BookListActivity.class));
                 finish();
             } else {
-                Toast.makeText(this, "Invalid username/password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Invalid username/password. The credentials are admin/admin", Toast.LENGTH_SHORT).show();
             }
         });
     }
