@@ -19,7 +19,7 @@
             android:id="@+id/tv_filter_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filter"
+            android:text="Book List"
             android:textStyle="bold"
             android:textSize="26sp"
             android:textColor="?attr/colorPrimary"
@@ -56,6 +56,15 @@
                 android:text="Show All"
                 android:textColor="?attr/colorOnSurface" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Showing 0 of 0"
+            style="?attr/textAppearanceLabelLarge"
+            android:textColor="?attr/colorOnSurfaceVariant" />
 
         <LinearLayout
             android:layout_width="match_parent"

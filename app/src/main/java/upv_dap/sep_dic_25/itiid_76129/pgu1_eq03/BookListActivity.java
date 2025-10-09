@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ public class BookListActivity extends BaseActivity {
     BookAdapter adapter;
     RadioGroup rg;
     Button btnExport, btnImport;
+    TextView tvCount;
 
     private static final int WRITE_REQUEST_CODE = 101;
     private static final int READ_REQUEST_CODE = 102;
@@ -45,6 +47,9 @@ public class BookListActivity extends BaseActivity {
 
         db = new DBHelper(this);
 
+
+        tvCount = findViewById(R.id.tv_count);
+
         RecyclerView rv = findViewById(R.id.recycler);
         rv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new BookAdapter(db.getBooksByAvailable());
@@ -58,14 +63,17 @@ public class BookListActivity extends BaseActivity {
                 case "Available":
                     adapter = new BookAdapter(db.getBooksByAvailable());
                     rv.setAdapter(adapter);
+                    updateCount();
                     break;
                 case "Borrowed":
                     adapter = new BookAdapter(db.getBooksByBorrowed());
                     rv.setAdapter(adapter);
+                    updateCount();
                     break;
                 case "Show All":
                     adapter = new BookAdapter(db.getAllBooks());
                     rv.setAdapter(adapter);
+                    updateCount();
                     break;
             }
         });
@@ -75,6 +83,8 @@ public class BookListActivity extends BaseActivity {
 
         btnExport.setOnClickListener(v -> showExportChooser());
         btnImport.setOnClickListener(v -> showImportModeChooser());
+
+        updateCount();
     }
 
     @Override
@@ -86,6 +96,7 @@ public class BookListActivity extends BaseActivity {
     private void refresh() {
         List<Book> books = db.getAllBooks();
         adapter.setData(books);
+        updateCount();
     }
 
     @Override
@@ -99,6 +110,12 @@ public class BookListActivity extends BaseActivity {
         } else if (requestCode == WRITE_REQUEST_CODE) {
             exportToUri(uri);
         }
+    }
+
+    public void updateCount() {
+        int total = db.getAllBooks().size();
+        int showing = adapter.getItemCount();
+        tvCount.setText("Showing " + showing + " of " + total);
     }
 
     private void showExportChooser() {
@@ -177,7 +194,7 @@ public class BookListActivity extends BaseActivity {
                 }
                 Toast.makeText(this, "Replaced: " + inserted + " books (deleted " + deleted + ")", Toast.LENGTH_LONG).show();
 
-            } else { // ADD_ONLY
+            } else {
                 List<Book> existing = db.getAllBooks();
                 HashSet<String> keys = new HashSet<>();
                 for (Book e : existing) keys.add(makeKey(e));
