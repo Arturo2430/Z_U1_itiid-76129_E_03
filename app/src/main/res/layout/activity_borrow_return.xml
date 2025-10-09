@@ -36,16 +36,17 @@
                     style="?attr/textAppearanceHeadlineSmall"
                     android:textStyle="bold"
                     android:textColor="?attr/colorPrimary"
-                    android:layout_marginBottom="24dp"  />
-
+                    android:layout_marginBottom="24dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Select book"
                     app:boxStrokeColor="?attr/colorPrimary"
-                    app:endIconMode="dropdown_menu">
+                    app:hintTextColor="?attr/colorPrimary"
+                    app:endIconTint="?attr/colorPrimary"
+                    android:layout_marginBottom="16dp">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/spBooks"
@@ -53,9 +54,12 @@
                         android:layout_height="wrap_content"
                         android:inputType="none"
                         android:importantForAutofill="no"
-                        android:paddingVertical="12dp" />
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="16sp"
+                        android:padding="16dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- STATUS CHIP -->
                 <com.google.android.material.chip.Chip
                     android:id="@+id/tvCurrentStatus"
                     android:layout_width="wrap_content"
@@ -64,8 +68,8 @@
                     android:checkable="false"
                     android:textAllCaps="false"
                     android:textAppearance="?attr/textAppearanceLabelLarge"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:chipStrokeWidth="1dp"
                     tools:text="Available"
                     tools:contentDescription="Availability" />
             </LinearLayout>
@@ -75,8 +79,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="end"
-                android:layout_marginTop="12dp">
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:paddingHorizontal="16dp">
 
                 <Button
                     android:id="@+id/btnBorrow"
@@ -86,7 +91,8 @@
                     android:text="Borrow"
                     android:textAllCaps="false"
                     android:textColor="?attr/colorOnPrimary"
-                    android:backgroundTint="?attr/colorPrimary" />
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:paddingVertical="14dp" />
 
                 <Space
                     android:layout_width="12dp"
@@ -100,7 +106,8 @@
                     android:text="Return"
                     android:textAllCaps="false"
                     android:textColor="?attr/colorOnPrimary"
-                    android:backgroundTint="?attr/colorPrimary" />
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:paddingVertical="14dp" />
             </LinearLayout>
 
         </LinearLayout>

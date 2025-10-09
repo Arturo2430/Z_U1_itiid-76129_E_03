@@ -14,7 +14,9 @@
         <activity android:name=".StaticsActivity"/>
         <activity android:name=".AboutActivity" />
         <activity android:name=".BorrowReturnActivity"/>
-        <activity android:name=".AddBookActivity"/>
+        <activity
+            android:name=".AddBookActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".BookListActivity"/>
         <activity
             android:name=".LoginActivity"

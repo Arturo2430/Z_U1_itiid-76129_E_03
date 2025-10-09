@@ -172,4 +172,62 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.delete(T_BOOKS, null, null);
     }
 
+    /**
+     * Returns a list of unique authors from the database, ordered alphabetically
+     * Useful for AutoCompleteTextView suggestions
+     * @return ArrayList of unique author names
+     */
+    public ArrayList<String> getAllAuthors() {
+        ArrayList<String> authors = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT DISTINCT author FROM " + T_BOOKS +
+                " WHERE author IS NOT NULL AND author != '' ORDER BY author", null);
+
+        while (c.moveToNext()) {
+            authors.add(c.getString(0));
+        }
+
+        c.close();
+        return authors;
+    }
+
+    /**
+     * Returns a list of unique genres from the database, ordered alphabetically
+     * Useful for AutoCompleteTextView suggestions
+     * @return ArrayList of unique genre names
+     */
+    public ArrayList<String> getAllGenres() {
+        ArrayList<String> genres = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT DISTINCT genre FROM " + T_BOOKS +
+                " WHERE genre IS NOT NULL AND genre != '' ORDER BY genre", null);
+
+        while (c.moveToNext()) {
+            genres.add(c.getString(0));
+        }
+
+        c.close();
+        return genres;
+    }
+
+    /**
+     * Returns a String array of unique authors for use with ArrayAdapter
+     * @return String array of unique author names
+     */
+    public String[] getAllAuthorsArray() {
+        ArrayList<String> list = getAllAuthors();
+        return list.toArray(new String[0]);
+    }
+
+    /**
+     * Returns a String array of unique genres for use with ArrayAdapter
+     * @return String array of unique genre names
+     */
+    public String[] getAllGenresArray() {
+        ArrayList<String> list = getAllGenres();
+        return list.toArray(new String[0]);
+    }
+
 }
