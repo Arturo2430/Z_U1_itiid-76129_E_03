@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
@@ -13,6 +14,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BorrowReturnActivity extends BaseActivity {
 
@@ -53,7 +55,6 @@ public class BorrowReturnActivity extends BaseActivity {
         String[] titles = new String[allBooks.size()];
         for (int i = 0; i < allBooks.size(); i++) titles[i] = allBooks.get(i).getTitle();
 
-        // Layout recomendado para MaterialAutoCompleteTextView
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 com.google.android.material.R.layout.mtrl_auto_complete_simple_item,
@@ -81,17 +82,18 @@ public class BorrowReturnActivity extends BaseActivity {
         int idx = (selectedIndex >= 0 && selectedIndex < allBooks.size()) ? selectedIndex : 0;
         Book b1 = allBooks.get(idx);
 
+        if (Objects.equals(newStatus, b1.getStatus())) {
+            return;
+        }
         db.updateStatus(b1.getId(), newStatus);
-
-        // refrescamos y mantenemos la selección
+        Toast.makeText(this, "Status changes to: " + newStatus, Toast.LENGTH_SHORT).show();
         refreshBooks();
     }
 
     private void applyStatus(String status) {
         boolean isAvailable = DBHelper.STATUS_AVAILABLE.equals(status);
-
         int bg = ContextCompat.getColor(this, isAvailable ? R.color.status_available : R.color.status_borrowed);
-        tvStatus.setText(isAvailable ? "Available" : "Borrowed");
+        tvStatus.setText(status);
         tvStatus.setChipBackgroundColor(ColorStateList.valueOf(bg));
     }
 }

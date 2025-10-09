@@ -25,6 +25,10 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(v -> {
             String u = etUser.getText().toString().trim();
             String p = etPass.getText().toString().trim();
+
+            if (u.isEmpty()) { etUser.setError("Required"); return; }
+            if (p.isEmpty()) { etPass.setError("Required"); return; }
+
             if (db.validateUser(u, p)) {
                 startActivity(new Intent(this, BookListActivity.class));
                 finish();
